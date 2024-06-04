@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useRef, useState } from 'react';
 
 function App() {
+  // const countRef = useRef(0);
+  
+  // // const obj = {
+  // //   current: 0
+  // // }
+
+  // const [count, setCount] = useState(0);
+  
+  // /**
+  //  * {
+  //  *  current: 0
+  //  * }
+  //  * 
+  //  * countRef /// obj
+  //  */
+
+  // const handleClick = () => {
+  //   setCount(count + 1);
+  //   countRef.current = countRef.current + 1;
+  //   // obj.current = obj.current + 1;
+  // };
+
+  // // console.log({
+  // //   count,
+  // //   countRef,
+  // //   // obj
+  // // });
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     // setCount(count + 1);
+  //     countRef.current = countRef.current + 1;
+  //     // console.log({ count });
+  //     console.log({ countRef : countRef.current })
+  //   }, 1000);
+  // }, []);
+
+  const ref = useRef(null);
+
+  console.log({ ref });
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <input type='text' ref={ref} />
+      {/* <button onClick={handleClick}>CLICK BUTTON</button> */}
+    </>
   );
 }
 
